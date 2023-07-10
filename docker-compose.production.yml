@@ -13,7 +13,7 @@ services:
       - media:/media
     env_file: .env
   backend:
-    build: ./backend/
+    image: nikitriy1/kittygram_backend
     env_file: .env
     depends_on:
       - db
@@ -22,12 +22,12 @@ services:
       - media:/media
   frontend:
     env_file: .env
-    build: ./frontend/
+    image: nikitriy1/kittygram_fronted
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/fronted_static
   gateway:
-    build: ./nginx/
+    image: nikitriy1/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
