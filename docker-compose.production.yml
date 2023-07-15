@@ -11,6 +11,7 @@ services:
     volumes:
       - pg_data_kittygram:/var/lib/postgresql/data
       - media_kittygram:/media
+      - static_kittygram:/static
     env_file: .env
   backend:
     image: nikitriy1/kittygram_backend
@@ -33,5 +34,3 @@ services:
       - 9000:80
     volumes:
       - static_kittygram:/static
-    depends_on:
-      - backend
