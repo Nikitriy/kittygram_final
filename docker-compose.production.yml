@@ -25,7 +25,7 @@ services:
     image: nikitriy1/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_kittygram:/fronted_static/
+      - static_kittygram:/frontend_static/
   gateway:
     image: nikitriy1/kittygram_gateway
     env_file: .env
