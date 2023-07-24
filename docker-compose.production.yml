@@ -9,9 +9,9 @@ services:
   db:
     image: postgres:13.10
     volumes:
-      - pg_data_kittygram:/var/lib/postgresql/data
-      - media_kittygram:/media
-      - static_kittygram:/static
+      - pg_data_kittygram:/var/lib/postgresql/data/
+      - media_kittygram:/media/
+      - static_kittygram:/static/
     env_file: .env
   backend:
     image: nikitriy1/kittygram_backend
@@ -19,18 +19,18 @@ services:
     depends_on:
       - db
     volumes:
-      - static_kittygram:/backend_static/static
-      - media_kittygram:/media
+      - static_kittygram:/backend_static/
+      - media_kittygram:/media/
   frontend:
     env_file: .env
     image: nikitriy1/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_kittygram:/fronted_static
+      - static_kittygram:/fronted_static/
   gateway:
     image: nikitriy1/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
     volumes:
-      - static_kittygram:/static
+      - static_kittygram:/staticfiles/
