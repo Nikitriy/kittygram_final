@@ -7,7 +7,7 @@ volumes:
 
 services:
   db:
-    image: postgres:13.10
+    image: postgres:13
     volumes:
       - pg_data_kittygram:/var/lib/postgresql/data/
       - media_kittygram:/media/
