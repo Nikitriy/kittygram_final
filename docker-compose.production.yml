@@ -10,7 +10,6 @@ services:
     image: postgres:13
     volumes:
       - pg_data_kittygram:/var/lib/postgresql/data/
-      - media_kittygram:/media/
     env_file: .env
   backend:
     image: nikitriy1/kittygram_backend
@@ -19,7 +18,7 @@ services:
       - db
     volumes:
       - static_kittygram:/backend_static/
-      - media_kittygram:/media/
+      - media_kittygram:/app/media/
   frontend:
     env_file: .env
     image: nikitriy1/kittygram_frontend
